@@ -5,16 +5,14 @@ import Genre from "./pages/Genre";
 import HomePage from "./pages/HomePage";
 
 function App() {
-  const user = localStorage.getItem("user");
-
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={user ? <HomePage /> : <Register />} />
+        <Route exact path="/" element={<HomePage />} />
 
         <Route path="/register" element={<Register />} />
 
-        <Route path="/genre" element={user ? <Genre /> : <Register />} />
+        <Route path="/genre" element={<Genre />} />
       </Routes>
     </Router>
   );
