@@ -17,16 +17,14 @@ export const Weather = () => {
     fetchWeatherData();
   }, []);
 
-  console.log(weatherData);
-
   return (
     <div>
-      <div className="px-8 py-4 bg-pink-400 rounded-t-3xl flex gap-4 justify-around text-4xl font-semibold">
+      <div className="px-8 py-4 bg-[#ff4ade] rounded-t-3xl flex gap-4 justify-around text-4xl font-semibold">
         <p>{date?.toLocaleDateString()}</p>
         <p>{date?.toLocaleTimeString()}</p>
       </div>
 
-      <div className="p-8 bg-purple-500 rounded-b-3xl flex gap-5 justify-around">
+      <div className="p-8 bg-[#101744] rounded-b-3xl flex gap-5 justify-around">
         <div className="flex flex-col gap-2 items-center">
           {rainSVG}
           <p className="text-2xl font-medium">

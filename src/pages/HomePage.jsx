@@ -1,6 +1,7 @@
 import React from "react";
 import Profile from "../assets/images/profileBig.png";
 import { Weather } from "../components/Weather";
+import { NewsData } from "../components/News";
 
 export default function HomePage() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -10,7 +11,7 @@ export default function HomePage() {
     <div className="bg-black h-screen w-full">
       <div className="flex gap-x-20 text-white px-20 py-12">
         <div className="flex-[2] flex flex-col gap-10">
-          <div className="p-8 rounded-3xl bg-blue-600 flex gap-x-10">
+          <div className="p-8 rounded-3xl bg-[#5746ea] flex gap-x-10">
             <img src={Profile} alt="profile" />
 
             <div className="flex flex-col justify-around gap-y-5">
@@ -36,7 +37,9 @@ export default function HomePage() {
           <Weather />
         </div>
 
-        <div className="flex-1 bg-green-500 rounded-3xl p-6">NEWS</div>
+        <div className="flex-1 border rounded-3xl overflow-hidden h-full">
+          <NewsData />
+        </div>
       </div>
     </div>
   );
