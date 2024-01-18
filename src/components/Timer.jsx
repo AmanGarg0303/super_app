@@ -1,7 +1,7 @@
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import upIcon from "../assets/icons/up.png";
 import downIcon from "../assets/icons/down.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Timer = () => {
   const [hour, setHour] = useState(0);

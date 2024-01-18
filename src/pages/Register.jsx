@@ -76,7 +76,7 @@ export default function Register() {
               className="bg-[color:var(--input-back)] px-3 py-2 text-white w-full"
               name="name"
               onChange={handleChange}
-              // required
+              required
               value={data.name}
             />
             {error.name && <p className="text-red-500">{error.name}</p>}
@@ -89,7 +89,7 @@ export default function Register() {
               className="bg-[color:var(--input-back)] px-3 py-2 text-white w-full"
               name="username"
               onChange={handleChange}
-              // required
+              required
               value={data.username}
             />
             {error.username && <p className="text-red-500">{error.username}</p>}
@@ -102,7 +102,7 @@ export default function Register() {
               className="bg-[color:var(--input-back)] px-3 py-2 text-white w-full"
               name="email"
               onChange={handleChange}
-              // required
+              required
               value={data.email}
             />
             {error.email && <p className="text-red-500">{error.email}</p>}
@@ -115,7 +115,7 @@ export default function Register() {
               className="bg-[color:var(--input-back)] px-3 py-2 text-white w-full"
               name="mobile"
               onChange={handleChange}
-              // required
+              required
               value={data.mobile}
             />
             {error.mobile && <p className="text-red-500">{error.mobile}</p>}
@@ -125,7 +125,7 @@ export default function Register() {
             <div className="flex gap-2 items-center">
               <input
                 type="checkbox"
-                // required
+                required
                 className="bg-[color:var(--input-back)] px-3 py-2 "
                 onChange={(e) =>
                   setData({

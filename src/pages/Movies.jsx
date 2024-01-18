@@ -5,8 +5,6 @@ import axios from "axios";
 import requests from "../data/moviesReq";
 
 export default function Movies() {
-  const BASE_URL = "https://image.tmdb.org/t/p/original/";
-
   const [moviesData, setMoviesData] = useState([]);
   const genre = JSON.parse(localStorage.getItem("genre"));
 

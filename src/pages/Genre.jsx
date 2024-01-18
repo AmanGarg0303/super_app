@@ -25,9 +25,14 @@ export default function Genre() {
               Choose your entertainment category
             </p>
 
-            <div>
+            <div className="flex flex-wrap">
               {selected.map((item) => (
-                <p key={item}>{item}</p>
+                <p
+                  key={item}
+                  className="bg-green-500 my-2 mr-4 w-fit px-5 py-1.5 rounded-full"
+                >
+                  {item}
+                </p>
               ))}
             </div>
 
