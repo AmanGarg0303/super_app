@@ -4,6 +4,7 @@ import { Weather } from "../components/Weather";
 import { NewsData } from "../components/News";
 import { Notes } from "../components/Notes";
 import { Timer } from "../components/Timer";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -52,6 +53,14 @@ export default function HomePage() {
         <div className="flex-[2]">
           <Timer />
         </div>
+      </div>
+
+      <div className=" pb-10 px-20 flex justify-end">
+        <Link to="/movies">
+          <button className="w-40 p-2 font-medium text-xl bg-green-500 hover:bg-green-500/90 rounded-full ">
+            Browse
+          </button>
+        </Link>
       </div>
     </div>
   );
