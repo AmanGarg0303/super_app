@@ -2,13 +2,15 @@ import React from "react";
 import Profile from "../assets/images/profileBig.png";
 import { Weather } from "../components/Weather";
 import { NewsData } from "../components/News";
+import { Notes } from "../components/Notes";
+import { Timer } from "../components/Timer";
 
 export default function HomePage() {
   const user = JSON.parse(localStorage.getItem("user"));
   const genres = JSON.parse(localStorage.getItem("genre"));
 
   return (
-    <div className="bg-black h-screen w-full">
+    <div className="bg-black min-h-screen w-full">
       <div className="flex gap-x-20 text-white px-20 py-12">
         <div className="flex-[2] flex flex-col gap-10">
           <div className="p-8 rounded-3xl bg-[#5746ea] flex gap-x-10">
@@ -39,6 +41,16 @@ export default function HomePage() {
 
         <div className="flex-1 border rounded-3xl overflow-hidden h-full">
           <NewsData />
+        </div>
+      </div>
+
+      <div className="px-20 py-6 text-white flex gap-x-20">
+        <div className="flex-1">
+          <Notes />
+        </div>
+
+        <div className="flex-[2]">
+          <Timer />
         </div>
       </div>
     </div>
