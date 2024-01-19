@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import coverImg from "../assets/images/cover.png";
+import { useAuth } from "../providers/authProvider";
 
 export default function Register() {
   const navigate = useNavigate();
+  const { register } = useAuth();
 
   const [data, setData] = useState({
     name: "",
@@ -45,7 +47,7 @@ export default function Register() {
     setError(errors);
 
     if (Object.keys(error).length === 0) {
-      localStorage.setItem("user", JSON.stringify(data));
+      register(data);
       navigate("/genre");
     }
   };
