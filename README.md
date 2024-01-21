@@ -1,4 +1,4 @@
-Do `npm i` in both terminal to install node_modules.
+Do `npm i` in terminal to install node_modules.
 
 Create a `.env` file which includes -
 
