@@ -25,7 +25,7 @@ export default function HomePage() {
               </div>
 
               <div className="grid grid-cols-3">
-                {genres.map((g) => (
+                {genres?.map((g) => (
                   <p
                     key={g}
                     className="text-lg px-6 py-2 rounded-full bg-purple-400 w-40 m-2"

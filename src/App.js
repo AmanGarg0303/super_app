@@ -13,12 +13,10 @@ import { useAuth } from "./providers/authProvider";
 
 function App() {
   const { user } = useAuth();
-  console.log(user);
 
   return (
     <Router>
       <Routes>
-        {/* <Route exact path="/" element={<HomePage />} /> */}
         <Route
           path="/register"
           element={!user ? <Register /> : <Navigate to="/" />}
@@ -30,8 +28,14 @@ function App() {
           element={user ? <HomePage /> : <Navigate to="/register" />}
         />
 
-        <Route path="/genre" element={<Genre />} />
-        <Route path="/movies" element={<Movies />} />
+        <Route
+          path="/genre"
+          element={user ? <Genre /> : <Navigate to="/register" />}
+        />
+        <Route
+          path="/movies"
+          element={user ? <Movies /> : <Navigate to="/register" />}
+        />
       </Routes>
     </Router>
   );

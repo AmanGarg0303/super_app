@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import coverImg from "../assets/images/cover.png";
 import { useAuth } from "../providers/authProvider";
@@ -15,7 +15,13 @@ export default function Register() {
     shareData: false,
   });
 
-  const [error, setError] = useState({});
+  const [error, setError] = useState({
+    name: "",
+    username: "",
+    email: "",
+    mobile: "",
+    shareData: "",
+  });
 
   const handleChange = (e) => {
     setData({
@@ -40,17 +46,23 @@ export default function Register() {
     if (!data.mobile) {
       errors.mobile = "Please fill in the mobile number!";
     }
+    if (data.mobile.length !== 10) {
+      errors.mobile = "Please write accurate mobile number!";
+    }
     if (!data.shareData) {
       errors.shareData = "Please check this to proceed!";
     }
 
     setError(errors);
 
-    if (Object.keys(error).length === 0) {
+    if (Object.keys(errors).length === 0) {
       register(data);
       navigate("/genre");
     }
   };
+
+  // console.log(error);
+  // console.log(data);
 
   return (
     <div className="grid grid-cols-2">
@@ -78,7 +90,7 @@ export default function Register() {
               className="bg-[color:var(--input-back)] px-3 py-2 text-white w-full"
               name="name"
               onChange={handleChange}
-              required
+              // required
               value={data.name}
             />
             {error.name && <p className="text-red-500">{error.name}</p>}
@@ -91,7 +103,7 @@ export default function Register() {
               className="bg-[color:var(--input-back)] px-3 py-2 text-white w-full"
               name="username"
               onChange={handleChange}
-              required
+              // required
               value={data.username}
             />
             {error.username && <p className="text-red-500">{error.username}</p>}
@@ -104,7 +116,7 @@ export default function Register() {
               className="bg-[color:var(--input-back)] px-3 py-2 text-white w-full"
               name="email"
               onChange={handleChange}
-              required
+              // required
               value={data.email}
             />
             {error.email && <p className="text-red-500">{error.email}</p>}
@@ -117,7 +129,7 @@ export default function Register() {
               className="bg-[color:var(--input-back)] px-3 py-2 text-white w-full"
               name="mobile"
               onChange={handleChange}
-              required
+              // required
               value={data.mobile}
             />
             {error.mobile && <p className="text-red-500">{error.mobile}</p>}
@@ -127,14 +139,15 @@ export default function Register() {
             <div className="flex gap-2 items-center">
               <input
                 type="checkbox"
-                required
+                // required
                 className="bg-[color:var(--input-back)] px-3 py-2 "
                 onChange={(e) =>
                   setData({
                     ...data,
-                    shareData: e.target.value,
+                    shareData: !data.shareData,
                   })
                 }
+                checked={data.shareData}
               />
               <p className="text-gray-500">
                 Share my registration data with Superapp
