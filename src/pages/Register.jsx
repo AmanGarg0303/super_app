@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import coverImg from "../assets/images/cover.png";
 import { useAuth } from "../providers/authProvider";
@@ -60,9 +60,6 @@ export default function Register() {
       navigate("/genre");
     }
   };
-
-  // console.log(error);
-  // console.log(data);
 
   return (
     <div className="grid grid-cols-2">

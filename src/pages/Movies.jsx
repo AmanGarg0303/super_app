@@ -3,10 +3,12 @@ import Profile from "../assets/images/profileSmall.png";
 import { MovieCard } from "../components/MovieCard";
 import axios from "axios";
 import requests from "../data/moviesReq";
+import { useAuth } from "../providers/authProvider";
 
 export default function Movies() {
   const [moviesData, setMoviesData] = useState([]);
   const genre = JSON.parse(localStorage.getItem("genre"));
+  const { logout } = useAuth();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -29,7 +31,13 @@ export default function Movies() {
         <h1 className="text-[color:var(--green-text)] text-2xl font-semibold">
           Super app
         </h1>
-        <img src={Profile} alt="" className="w-14" />
+        <img
+          onClick={logout}
+          src={Profile}
+          alt=""
+          className="w-14"
+          title="Logout"
+        />
       </div>
 
       <div className="px-16 pb-20">
