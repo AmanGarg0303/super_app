@@ -4,7 +4,7 @@ import { rainSVG, pressure, wind, humidity } from "../assets/svgs";
 
 export const Weather = () => {
   const [weatherData, setWeatherData] = useState();
-  const date = new Date();
+  const [date, setDate] = useState(new Date());
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -15,6 +15,16 @@ export const Weather = () => {
     };
 
     fetchWeatherData();
+  }, []);
+
+  useEffect(() => {
+    const time = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+
+    return () => {
+      clearInterval(time);
+    };
   }, []);
 
   return (
