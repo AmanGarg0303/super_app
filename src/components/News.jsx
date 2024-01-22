@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import NoImg from "../assets/images/No img.png";
+import { Link } from "react-router-dom";
 
 export const NewsData = () => {
   const [newsData, setNewsData] = useState();
@@ -19,13 +21,17 @@ export const NewsData = () => {
   return (
     <div className="">
       <img
-        src={newsData?.urlToImage}
+        src={newsData?.urlToImage || NoImg}
         alt="newsImg"
-        className="rounded-t-3xl h-80"
+        className="rounded-t-3xl h-80 w-full"
       />
 
       <div className="px-10 py-3 space-y-2">
-        <h4 className="line-clamp-1 text-2xl">{newsData?.title}</h4>
+        <Link to={`${newsData?.url && newsData.url}`}>
+          <h4 className="line-clamp-1 text-2xl cursor-pointer">
+            {newsData?.title}
+          </h4>
+        </Link>
 
         <p>Published at: {newsData?.publishedAt.slice(0, 10)}</p>
       </div>
