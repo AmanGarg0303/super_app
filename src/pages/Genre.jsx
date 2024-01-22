@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card } from "../components/Card";
 import { cardsData } from "../data/cardsData";
 import { useNavigate } from "react-router-dom";
+import { close } from "../assets/svgs";
 
 export default function Genre() {
   const [selected, setSelected] = useState([]);
@@ -29,9 +30,13 @@ export default function Genre() {
               {selected.map((item) => (
                 <p
                   key={item}
-                  className="bg-green-500 my-2 mr-4 w-fit px-5 py-1.5 rounded-full"
+                  className="bg-green-500 my-2 mr-4 w-fit px-5 py-1.5 rounded-full cursor-pointer flex gap-2 items-center"
+                  onClick={() =>
+                    setSelected(() => selected.filter((val) => val !== item))
+                  }
                 >
                   {item}
+                  {close}
                 </p>
               ))}
             </div>
