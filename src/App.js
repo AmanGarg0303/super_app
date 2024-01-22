@@ -13,6 +13,7 @@ import { useAuth } from "./providers/authProvider";
 
 function App() {
   const { user } = useAuth();
+  const genres = localStorage.getItem("genre");
 
   return (
     <Router>
@@ -23,18 +24,27 @@ function App() {
         />
 
         <Route
+          path="/genre"
+          element={user ? <Genre /> : <Navigate to="/register" />}
+        />
+
+        <Route
           exact
           path="/"
           element={user ? <HomePage /> : <Navigate to="/register" />}
         />
 
         <Route
-          path="/genre"
-          element={user ? <Genre /> : <Navigate to="/register" />}
-        />
-        <Route
           path="/movies"
-          element={user ? <Movies /> : <Navigate to="/register" />}
+          element={
+            user ? (
+              <Movies />
+            ) : genres ? (
+              <Movies />
+            ) : (
+              <Navigate to="/register" />
+            )
+          }
         />
       </Routes>
     </Router>

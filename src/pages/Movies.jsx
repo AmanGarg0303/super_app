@@ -10,8 +10,9 @@ export default function Movies() {
 
   useEffect(() => {
     const fetchMovies = async () => {
+      if (!genre) return;
       Promise.all(
-        genre.map(async (g) => await axios.get(requests[g]?.url))
+        genre?.map(async (g) => await axios.get(requests[g]?.url))
       ).then((data) => {
         setMoviesData(data);
       });
@@ -43,7 +44,7 @@ export default function Movies() {
 
               <div className="flex overflow-x-scroll scrollbar-hide">
                 {movies?.data?.results?.map((movie) => (
-                  <MovieCard key={movie.id} movie={movie} />
+                  <MovieCard key={movie?.id} movie={movie} />
                 ))}
               </div>
             </div>

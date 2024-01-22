@@ -12,16 +12,18 @@ export default function HomePage() {
 
   return (
     <div className="bg-black min-h-screen w-full">
-      <div className="flex gap-x-20 text-white px-20 py-12">
+      <div className="flex flex-col gap-10 lg:flex-row gap-x-20 text-white px-20 py-12">
         <div className="flex-[2] flex flex-col gap-10">
           <div className="p-8 rounded-3xl bg-[#5746ea] flex gap-x-10">
             <img src={Profile} alt="profile" />
 
             <div className="flex flex-col justify-around gap-y-5">
               <div>
-                <p className="text-2xl">{user.name}</p>
-                <p className="text-2xl">{user.email}</p>
-                <p className="text-3xl font-semibold">{user.username}</p>
+                <p className="text-2xl">Name: {user?.name}</p>
+                <p className="text-2xl break-all">Username: {user?.email}</p>
+                <p className="text-3xl font-semibold break-all">
+                  Email: {user?.username}
+                </p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
@@ -45,7 +47,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="px-20 py-6 text-white flex gap-x-20">
+      <div className="flex flex-col gap-y-10 lg:flex-row px-20 py-6 text-white gap-20">
         <div className="flex-1">
           <Notes />
         </div>
