@@ -9,10 +9,9 @@ export const Notes = () => {
       <textarea
         rows="8"
         className="bg-transparent outline-none resize-none w-full overflow-y-auto"
+        defaultValue={localStorage.getItem("notes")}
         onChange={handleChange}
-      >
-        {localStorage.getItem("notes")}
-      </textarea>
+      ></textarea>
     </div>
   );
 };
